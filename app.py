@@ -13,6 +13,7 @@ prompt = """Act as youtube video summarizer, Video transcript text will provide 
 def generate_gemini_content(transcript, prompt):
     model = genai.GenerativeModel("gemini-pro")
     response = model.generate_content(prompt+transcript)
+    
     response.text
 
 ## Extract transcript
