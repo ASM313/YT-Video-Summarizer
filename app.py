@@ -1,11 +1,20 @@
-from flask import Flask, render_template
+from flask import Flask, request, render_template
+from utility import *
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
-    return "<h1> Asslamu alaikum </h1>"
+    return render_template('index.html')
 
+@app.route('/summary', methods=['POST'])
+def gemini_response():
+    
+    url = request.form['userInput']
+    transcript = transcript_text(url)
+    
+    response = generate_gemini_content(transcript, prompt) 
+    return render_template('index.html', response=response)
 
-if __name__=="__main__":
+if __name__ == '__main__':
     app.run(debug=True)
