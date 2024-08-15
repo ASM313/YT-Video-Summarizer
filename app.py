@@ -13,8 +13,9 @@ def gemini_response():
     url = request.form['userInput']
     transcript = transcript_text(url)
     
-    response = generate_gemini_content(transcript, prompt) 
-    return render_template('index.html', response=response)
+    response = generate_gemini_content(transcript, prompt)
+    print(response)
+    return render_template('result.html', response=response)
 
 if __name__ == '__main__':
     app.run(debug=True)
