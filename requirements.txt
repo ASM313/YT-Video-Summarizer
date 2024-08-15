@@ -1,0 +1,5 @@
+youtube_transcript_api
+Flask
+python-dotenv
+pathlib
+google-generativeai
