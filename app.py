@@ -17,4 +17,4 @@ def get_response():
     return render_template('result.html', response=response)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
