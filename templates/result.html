@@ -1,23 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Summarizer</title>
-   
-</head>
-<body>
-
-    <div class="container">
-        <h2>Summary is</h2>
-        
-        <div class="response">
-            <!-- Response from the server will be displayed here -->
-            {% if response %}
-                {{ response }}
-            {% endif %}
-        </div>
-    </div>
-
-</body>
+    {% if response %}
+        {{ response }}
+    {% endif %}
 </html>
+        

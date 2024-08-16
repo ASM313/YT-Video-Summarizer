@@ -6,7 +6,7 @@ from youtube_transcript_api import YouTubeTranscriptApi
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-prompt = """Act as youtube video summarizer, Video transcript text will provide to you. So your task is to summarize entire video and return the detailed summary in 5000 words and give response in HTML code. The transcript text will be appended here: 
+prompt = """Act as youtube video summarizer, Video transcript text will provide to you. So your task is to summarize entire video and return the detailed summary in 5000 words and take care of all headings, titles, paragraphs and sections. The transcript text will be appended here: 
 """
 
 ## Extract transcript
@@ -25,6 +25,7 @@ def transcript_text(url):
         return transcript     
         
     except Exception as e:
+        return "Transcript not available for this video"
         raise e
 
 ## Communicate with Gemini
@@ -33,5 +34,12 @@ def generate_gemini_content(transcript, prompt):
     response = model.generate_content(prompt+transcript)
     
     return response.text
+
+def beautify(summary):
+    prompt = """..."""
+    return 1
+     
+    
+
 
 
